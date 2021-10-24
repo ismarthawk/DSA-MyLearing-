@@ -164,3 +164,32 @@ def findKthSmallest(root,k) :
         else :
             break
     return -1
+
+
+# Ceil of a value in the BST.
+
+def ceil(root,data) :
+    if root is None :
+        return -1
+    if root.data == data :
+        return data
+    elif root.data < data :
+        return ceil(root.right,data)
+    else :
+        k = ceil(root.left,data)
+        if k == -1 :
+            return root.data
+        return k
+
+# Floor of a value in a BST
+
+def floor(root,data) :
+    if root is None : return -1
+    if root.data == data :
+        return data
+    elif root.data > data :
+        return floor(root.left,data)
+    else :
+        k = floor(root.right,data)
+        if k == -1 : return root.data
+        else : return k
